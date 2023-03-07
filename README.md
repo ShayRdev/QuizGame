@@ -23,3 +23,17 @@ score is kept in top right corner in div container
 modal pops us after 10th question is submitted with a replay buttond results of quiz game
 
  
+
+
+
+
+ my quiz questions
+
+1 Who was the Queen of Soul? // answer: Aretha Franklin
+
+2 What is the biggest hit of Bing Crosby? // answer: White Christmas
+
+3 In which city was John Lennon killed?	// answer: New York
+
+4 Which British pop group had a hit called Angel Eyes in the seventies?	// answer: Roxy Music
+
