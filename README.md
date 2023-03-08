@@ -13,7 +13,7 @@ submit button that checks for correct answer
 
 next button is rendered after submit button is clicked
 
-store all questions as state variables as an array inside of a javascript object
+store all questions as state data as an array inside of a javascript object
     itterate through 10 questions with (for each) as game goes on.
     
 score is kept in top right corner in div container

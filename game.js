@@ -14,7 +14,7 @@ const quizQuestions = [
         question: "In which city was John Lennon killed?",
         options: ["New York", "Gilmer"],
         answer: "New York"
-    }
+    },
     {
         question: "Whos is the greatest rapper of all time?",
         options: ["Tupac", "Playboi Carti"],
@@ -27,6 +27,6 @@ const quizQuestions = [
 //cached elements
 let QuestionEl = document.getElementById('question'); 
 //event listeners
-f
+
 //functions
 subbmitAnswer()
