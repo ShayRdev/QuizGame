@@ -20,13 +20,23 @@ const quizQuestions = [
         options: ["Tupac", "Playboi Carti"],
         answer: "Playboi Carti"
     }
-]
+];
 
 //constant variables
 
 //cached elements
-let QuestionEl = document.getElementById('question'); 
+const QuestionEl = document.getElementById('current-question')
+const FirstOptionEL = document.getElementById('option-1');
+const SecondOptionEL = document.getElementById('option-2');
+const SubmitEl = document.getElementById('submit');
+const QuizQuestionContainer = document.getElementById('container');
 //event listeners
 
 //functions
-subbmitAnswer()
+
+quizQuestions.forEach(function(q) {
+    QuestionEl.innerHTML = q.question;
+    FirstOptionEL.innerText = q.options[0];
+    SecondOptionEL.innerText = q.options[1];
+});
+
