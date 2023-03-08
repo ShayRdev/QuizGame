@@ -1,5 +1,5 @@
 // state
-const quizQuestions = [
+let quizQuestions = [
     {
         question: "Who was the Queen of Soul?",
         options: ["Aretha Franklin", "Billie Holiday"],
@@ -22,6 +22,9 @@ const quizQuestions = [
     }
 ];
 
+let currentIdx = 0
+let questionIdx = 0
+
 //constant variables
 
 //cached elements
@@ -31,12 +34,30 @@ const SecondOptionEL = document.getElementById('option-2');
 const SubmitEl = document.getElementById('submit');
 const QuizQuestionContainer = document.getElementById('container');
 //event listeners
+SubmitEl.addEventListener('click', setNextQuestion);
 
 //functions
+function setNextQuestion() {
+    QuestionEl.innerHTML = quizQuestions[currentIdx].question
+    FirstOptionEL.innerText = quizQuestions[currentIdx].options[0]
+    SecondOptionEL.innerText = quizQuestions[currentIdx].options[1]
+    currentIdx += 1
+}
 
-quizQuestions.forEach(function(q) {
-    QuestionEl.innerHTML = q.question;
-    FirstOptionEL.innerText = q.options[0];
-    SecondOptionEL.innerText = q.options[1];
-});
 
+
+
+
+
+
+
+
+//     quizQuestions.forEach((q) => {
+//         QuestionEl.innerHTML = quizQuestions.qestion + q.question;
+//     });
+// }
+// quizQuestions.forEach(function(q) { 
+//     QuestionEl.innerHTML = q.question;
+//     FirstOptionEL.innerText = q.options[0];
+//     SecondOptionEL.innerText = q.options[1];
+// });
