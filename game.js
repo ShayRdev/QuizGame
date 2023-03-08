@@ -26,38 +26,34 @@ let currentIdx = 0
 let questionIdx = 0
 
 //constant variables
+// let score;
 
 //cached elements
 const QuestionEl = document.getElementById('current-question')
 const FirstOptionEL = document.getElementById('option-1');
 const SecondOptionEL = document.getElementById('option-2');
 const SubmitEl = document.getElementById('submit');
-const QuizQuestionContainer = document.getElementById('container');
+// const QuizQuestionContainer = document.getElementById('container');
 //event listeners
-SubmitEl.addEventListener('click', setNextQuestion);
 
+SubmitEl.addEventListener('click', setNextQuestion);
+FirstOptionEL.addEventListener('click', selectOption);
+SecondOptionEL.addEventListener('click', selectOption);
 //functions
 function setNextQuestion() {
     QuestionEl.innerHTML = quizQuestions[currentIdx].question
     FirstOptionEL.innerText = quizQuestions[currentIdx].options[0]
     SecondOptionEL.innerText = quizQuestions[currentIdx].options[1]
     currentIdx += 1
+    // if(quizQuestions[currentIdx] === quizQuestions.answer) {
+    //     console.log('hello');
+    // }
 }
 
+setNextQuestion();
 
-
-
-
-
-
-
-
-//     quizQuestions.forEach((q) => {
-//         QuestionEl.innerHTML = quizQuestions.qestion + q.question;
-//     });
-// }
-// quizQuestions.forEach(function(q) { 
-//     QuestionEl.innerHTML = q.question;
-//     FirstOptionEL.innerText = q.options[0];
-//     SecondOptionEL.innerText = q.options[1];
-// });
+function selectOption() {
+    if( selectOption === quizQuestions.answer) {
+            console.log('hello');
+    }
+}
