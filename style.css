@@ -1,4 +1,48 @@
-body {
+* {
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
+    
+}
+
+.container {
+    border-style: solid;
+    margin: 25px;
+    padding: 25px;
+    background-color: wheat;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: spaceb;
+}
+
+#current-question {
+    display: grid;
+    margin: 10px;
+    padding: 10px;
+    justify-content: start;
+}
+
+h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-container {
+    display: inline;
+    justify-content: space-between;
+    align-items: space-between;
+    padding: 0 auto;
+    margin: 5px 100px 5px 100px;
+}
+
+nav {
+    display: grid;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 10px 50px 10px 50px;
 }

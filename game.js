@@ -30,25 +30,34 @@ let currentAnsIdx = 0
 const QuestionEl = document.getElementById('current-question')
 const FirstOptionEL = document.getElementById('option-1');
 const SecondOptionEL = document.getElementById('option-2');
-const SubmitEl = document.getElementById('submit');
+const NextEl = document.getElementById('next');
 //event listeners
 
-SubmitEl.addEventListener('click', setNextQuestion);
+NextEl.addEventListener('click', setNextQuestion);
 FirstOptionEL.addEventListener('click', selectOption);
 SecondOptionEL.addEventListener('click', selectOption);
 
 //functions
 function setNextQuestion() {
     if(currentIdx < quizQuestions.length) {
+        currentIdx += 1;
+        currentAnsIdx += 1
         QuestionEl.innerHTML = quizQuestions[currentIdx].question
         FirstOptionEL.innerText = quizQuestions[currentIdx].options[0]
         SecondOptionEL.innerText = quizQuestions[currentIdx].options[1]
-        currentIdx += 1
     } else {
         QuestionEl.innerHTML = "Done";
     }
+} 
+
+function startGame() {
+    QuestionEl.innerHTML = quizQuestions[0].question
+    FirstOptionEL.innerText = quizQuestions[0].options[0]
+    SecondOptionEL.innerText = quizQuestions[0].options[1]
+    // currentIdx += 1; 
+    // currentAnsIdx += 1;   
+
 }
-setNextQuestion();
 
 function selectOption(event) {
     const selectedOption = event.target.innerText;
@@ -59,6 +68,8 @@ function selectOption(event) {
     } else {
         console.log('incorrect');
     }
-    if (currentAnsIdx < currentIdx) {
-    currentAnsIdx +=1 }
+    
 }
+
+
+startGame()
