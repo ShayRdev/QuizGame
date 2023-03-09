@@ -20,10 +20,9 @@ let quizQuestions = [
         options: ["Tupac", "Playboi Carti"],
         answer: "Playboi Carti"
     }
-];
+]; 
 
 let currentIdx = 0
-let questionIdx = 0
 
 //constant variables
 // let score;
@@ -33,27 +32,44 @@ const QuestionEl = document.getElementById('current-question')
 const FirstOptionEL = document.getElementById('option-1');
 const SecondOptionEL = document.getElementById('option-2');
 const SubmitEl = document.getElementById('submit');
-// const QuizQuestionContainer = document.getElementById('container');
 //event listeners
 
 SubmitEl.addEventListener('click', setNextQuestion);
 FirstOptionEL.addEventListener('click', selectOption);
 SecondOptionEL.addEventListener('click', selectOption);
+
 //functions
 function setNextQuestion() {
-    QuestionEl.innerHTML = quizQuestions[currentIdx].question
-    FirstOptionEL.innerText = quizQuestions[currentIdx].options[0]
-    SecondOptionEL.innerText = quizQuestions[currentIdx].options[1]
-    currentIdx += 1
-    // if(quizQuestions[currentIdx] === quizQuestions.answer) {
-    //     console.log('hello');
-    // }
-}
-
-setNextQuestion();
-
-function selectOption() {
-    if( selectOption === quizQuestions.answer) {
-            console.log('hello');
+    if(currentIdx < quizQuestions.length) {
+        QuestionEl.innerHTML = quizQuestions[currentIdx].question
+        FirstOptionEL.innerText = quizQuestions[currentIdx].options[0]
+        SecondOptionEL.innerText = quizQuestions[currentIdx].options[1]
+        currentIdx += 1
+    } else {
+        QuestionEl.innerHTML = "Done";
     }
 }
+setNextQuestion();
+
+function selectOption(event) {
+    const selectedOption = event.target.innerText;
+    const correctAnswer = quizQuestions[0].answer;
+    console.log(event.target.innerText) 
+    if(selectedOption === correctAnswer) {
+        console.log('correct');
+    } else {
+        console.log('incorrect');
+    }
+}
+
+// function score() {
+//     score = 0;
+// }
+
+// score()
+
+// function selectOption(event) {
+//     if(event.target.innerHTML === quizQuestions[currentIdx].answer) {     
+//         console.log('true'); 
+//     } 
+// }
