@@ -24,13 +24,17 @@ let quizQuestions = [
 
 let currentIdx = 0
 let currentAnsIdx = 0
+
 //constant variables
 
 //cached elements
+
 const QuestionEl = document.getElementById('current-question')
 const FirstOptionEL = document.getElementById('option-1');
 const SecondOptionEL = document.getElementById('option-2');
 const NextEl = document.getElementById('next');
+const ScoreEL = document.getElementById('score' )
+
 //event listeners
 
 NextEl.addEventListener('click', setNextQuestion);
@@ -38,6 +42,7 @@ FirstOptionEL.addEventListener('click', selectOption);
 SecondOptionEL.addEventListener('click', selectOption);
 
 //functions
+
 function setNextQuestion() {
     if(currentIdx < quizQuestions.length) {
         currentIdx += 1;
@@ -53,9 +58,7 @@ function setNextQuestion() {
 function startGame() {
     QuestionEl.innerHTML = quizQuestions[0].question
     FirstOptionEL.innerText = quizQuestions[0].options[0]
-    SecondOptionEL.innerText = quizQuestions[0].options[1]
-    // currentIdx += 1; 
-    // currentAnsIdx += 1;   
+    SecondOptionEL.innerText = quizQuestions[0].options[1]  
 
 }
 
@@ -71,5 +74,12 @@ function selectOption(event) {
     
 }
 
+function score() {
+    ScoreEL.forEach((el) => {
+    correctAnswer = el.FirstOptionEL
+
+    }) 
+    return correctAnswer
+}
 
 startGame()
