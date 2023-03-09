@@ -23,9 +23,8 @@ let quizQuestions = [
 ]; 
 
 let currentIdx = 0
-
+let currentAnsIdx = 0
 //constant variables
-// let score;
 
 //cached elements
 const QuestionEl = document.getElementById('current-question')
@@ -53,23 +52,13 @@ setNextQuestion();
 
 function selectOption(event) {
     const selectedOption = event.target.innerText;
-    const correctAnswer = quizQuestions[0].answer;
+    const correctAnswer = quizQuestions[currentAnsIdx].answer;
     console.log(event.target.innerText) 
     if(selectedOption === correctAnswer) {
         console.log('correct');
     } else {
         console.log('incorrect');
     }
+    if (currentAnsIdx < currentIdx) {
+    currentAnsIdx +=1 }
 }
-
-// function score() {
-//     score = 0;
-// }
-
-// score()
-
-// function selectOption(event) {
-//     if(event.target.innerHTML === quizQuestions[currentIdx].answer) {     
-//         console.log('true'); 
-//     } 
-// }
