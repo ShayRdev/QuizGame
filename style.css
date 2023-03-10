@@ -7,16 +7,17 @@
 
 .container {
     border-style: solid;
-    margin: 25px;
-    padding: 25px;
+    margin: 100px 100px 100px 100px;
+    padding: 100px 100px 100px 100px;
     background-color: wheat;
 }
 
 body {
     display: flex;
-    margin: 0;
+    margin: 100px 100px 100px 100px;
+    padding: 100px 100px 100px 100px;
     align-items: center;
-    justify-content: spaceb;
+    justify-content: center;
 }
 
 #current-question {

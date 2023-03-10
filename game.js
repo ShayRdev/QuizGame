@@ -28,23 +28,28 @@ let currentIdx = 0
 let currentAnsIdx = 0
 let pointsScored = 0;
 
+
 //cached elements
 
 const QuestionEl = document.getElementById('current-question')
 const FirstOptionEL = document.getElementById('option-1');
 const SecondOptionEL = document.getElementById('option-2');
 const NextEl = document.getElementById('next');
-const ScoreEL = document.getElementById('score');
+const ScoreEL = document.getElementById('score'); 
+// const RestartEl = document.getElementById('restart');
 //event listeners
 
 NextEl.addEventListener('click', setNextQuestion);
 FirstOptionEL.addEventListener('click', selectOption);
 SecondOptionEL.addEventListener('click', selectOption);
+// RestartEl.addEventListener("click", restart)
 
 //functions
 
 function setNextQuestion() {
     NextEl.style.display = "none";
+    FirstOptionEL.disabled = false;
+    SecondOptionEL.disabled = false;
     if(currentIdx < quizQuestions.length - 1) {
         currentIdx += 1;
         currentAnsIdx += 1
@@ -57,6 +62,7 @@ function setNextQuestion() {
 } 
 
 function startGame() {
+    // RestartEl.style.display = 'none';
     NextEl.style.display = "none";
     QuestionEl.innerHTML = quizQuestions[0].question
     FirstOptionEL.innerText = quizQuestions[0].options[0]
@@ -77,9 +83,12 @@ function selectOption(event) {
     const correctAnswer = quizQuestions[currentAnsIdx].answer;
     console.log(event.target.innerText) 
     if(selectedOption === correctAnswer) {
-        pointsScored += 25;           
+        FirstOptionEL.disabled = true;
+        SecondOptionEL.disabled = true;
+        pointsScored += 25;                  
     } else {
-        console.log('incorrect');
+        FirstOptionEL.disabled = true;
+        SecondOptionEL.disabled = true;
     }
     
 }
@@ -90,6 +99,13 @@ function endGame() {
         FirstOptionEL.style.display = "none"
         SecondOptionEL.style.display = "none"
         score();
+        // RestartEl.style.display = 'block'; 
 }
 
+// function restart() {
+    
+// }
+
 startGame()
+
+// pointsScored += 25;
