@@ -20,12 +20,13 @@ let quizQuestions = [
         options: ["Tupac", "Playboi Carti"],
         answer: "Playboi Carti"
     }
-]; 
+] 
+
+//constant variables
 
 let currentIdx = 0
 let currentAnsIdx = 0
-
-//constant variables
+let pointsScored = 0;
 
 //cached elements
 
@@ -33,8 +34,7 @@ const QuestionEl = document.getElementById('current-question')
 const FirstOptionEL = document.getElementById('option-1');
 const SecondOptionEL = document.getElementById('option-2');
 const NextEl = document.getElementById('next');
-const ScoreEL = document.getElementById('score' )
-
+const ScoreEL = document.getElementById('score');
 //event listeners
 
 NextEl.addEventListener('click', setNextQuestion);
@@ -44,42 +44,52 @@ SecondOptionEL.addEventListener('click', selectOption);
 //functions
 
 function setNextQuestion() {
-    if(currentIdx < quizQuestions.length) {
+    NextEl.style.display = "none";
+    if(currentIdx < quizQuestions.length - 1) {
         currentIdx += 1;
         currentAnsIdx += 1
         QuestionEl.innerHTML = quizQuestions[currentIdx].question
         FirstOptionEL.innerText = quizQuestions[currentIdx].options[0]
         SecondOptionEL.innerText = quizQuestions[currentIdx].options[1]
     } else {
-        QuestionEl.innerHTML = "Done";
-    }
+        endGame();
+    } 
 } 
 
 function startGame() {
+    NextEl.style.display = "none";
     QuestionEl.innerHTML = quizQuestions[0].question
     FirstOptionEL.innerText = quizQuestions[0].options[0]
     SecondOptionEL.innerText = quizQuestions[0].options[1]  
+}
 
+function score() {
+    if (pointsScored < 75) {
+        ScoreEL.innerHTML = 'You failed! You scored a ' + pointsScored + ' points out of 100.'
+    } else {
+        ScoreEL.innerHTML = 'You passed! You scored a ' + pointsScored + ' points out of 100.'
+    }
 }
 
 function selectOption(event) {
+    NextEl.style.display = 'block';
     const selectedOption = event.target.innerText;
     const correctAnswer = quizQuestions[currentAnsIdx].answer;
     console.log(event.target.innerText) 
     if(selectedOption === correctAnswer) {
-        console.log('correct');
+        pointsScored += 25;           
     } else {
         console.log('incorrect');
     }
     
 }
 
-function score() {
-    ScoreEL.forEach((el) => {
-    correctAnswer = el.FirstOptionEL
-
-    }) 
-    return correctAnswer
+function endGame() {
+        QuestionEl.innerHTML = "Done";
+        NextEl.style.display = 'none';
+        FirstOptionEL.style.display = "none"
+        SecondOptionEL.style.display = "none"
+        score();
 }
 
 startGame()
